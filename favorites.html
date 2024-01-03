@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Favorites</title>
+    <link rel="stylesheet" href="stylecss.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+       
+
+        .favorites-list {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .favorites-list h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: red;
+        }
+
+        .favorites-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .favorites-list li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<header>
+    <img src="tarif_d2.jpg" alt="Logo" id="logo">
+    <!--<p id="current-date"></p>-->
+    <!--<h1>Tarif Defteri</h1>-->
+    <nav>
+        <li><a href="mainpage.html">Main Page</a></li>
+        <li><a href="maincourse.html">Main Course</a></li>
+        <li><a href="turk.html">Turkish Cuisine</a></li>
+        <li><a href="soup.html">Soups</a></li>
+        <li><a href="salad.html">Salads</a></li>
+        <li><a href="dessert.html">Desserts</a></li>
+        <li><a href="beverage.html">Beverages</a></li>
+        <li><a class="ee" href="favorites.html">Favorite</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<main>
+  <section>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="favorites-list">
+        <h2>Favorites:</h2>
+        <ul id="favorites-list">
+          
+        </ul>
+    </div>
+    <script>
+     
+        var favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        var favoritesList = document.getElementById("favorites-list");
+
+      
+        for (var i = 0; i < favorites.length; i++) {
+            var listItem = document.createElement("li");
+            listItem.innerText = favorites[i];
+            favoritesList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>

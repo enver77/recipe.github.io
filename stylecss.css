@@ -1,0 +1,97 @@
+header img {
+    height: 70px;
+    margin-left: 30px;
+}
+body {
+    height: 125vh;
+    background-color: rgb(203, 183, 183);
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+.search-bar {
+  flex-grow: 1; /* Takes up remaining space */
+  margin-right: 1em; /* Adjust as needed */
+}
+
+.search-bar input {
+  width: 200px;
+  float: right;
+  padding: 0.5em;
+  border: none;
+  border-radius: 4px;
+}
+
+header {
+    background-color:rgb(70, 15, 15);
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display:flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+}
+
+header * {
+    display: inline;
+  }
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: rgb(255, 252, 252);
+    text-decoration: none;
+}
+header li a:hover {
+    width: 200px;
+    color: rgb(150, 50, 50);
+    font-weight: bold;
+    border-radius: 100px;
+    background: white;
+    border: 1px solid #009688;
+    padding: 6px;
+}
+.ee{
+    color: aqua;
+
+  }
+
+ main {
+    padding: 1em;
+  }
+.date-container {
+      font-size: 1.2em;
+      margin-top: 0.5em;
+    }
+
+  .recipe-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    margin-bottom: 1em;
+    color: black;
+  }
+  .recipe-card img {
+    border: 5px solid grey;
+  }
+  @media only screen and (max-width: 600px) {
+      nav li {
+        flex-basis: 48%; /* Two items per row */
+        box-sizing: border-box; /* Include padding and border in the width calculation */
+        margin-bottom: 0.5em; /* Add spacing between rows */
+      }
+      nav ul {
+        flex-wrap: wrap;
+      }
+    }

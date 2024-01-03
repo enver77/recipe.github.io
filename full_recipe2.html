@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Chicken Burrito</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #e74c3c;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.recipe-details {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-details img {
+    width: 100%;
+    height: auto;
+}
+
+.recipe-info {
+    padding: 20px;
+}
+
+.recipe-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #e74c3c;
+}
+
+.recipe-info p {
+    font-weight: bold;
+    color: #333;
+}
+
+.recipe-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-info li {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.timer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+
+.timer h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #e74c3c;
+}
+</style>
+</head>
+<body>
+    <script>
+        function Kronometre(Id, Saniye){
+  
+  this.gercekSaniye = Saniye || 0;
+  this.saniye = Saniye || 0;
+  this.interval;
+  
+  this.baslat = function(){
+    this.sayacElem = document.getElementById(Id);
+    if ( !this.interval ){
+      this.sayac();
+      this.interval = setInterval(this.sayac.bind(this), 1000);
+    }
+  };
+  
+  this.sayac = function(){
+    
+    var toplamSaniye = this.saniye;
+    var saat = parseInt( toplamSaniye / 3600 ) % 24;
+    var dakika = parseInt( toplamSaniye / 60 ) % 60;
+    var saniye = toplamSaniye % 60;
+    
+    this.sayacElem.innerHTML = (saat < 10 ? "0" + saat : saat) + ":" + (dakika < 10 ? "0" + dakika : dakika) + ":" + (saniye  < 10 ? "0" + saniye : saniye);
+    
+    this.saniye += 1;
+    
+  };
+  
+  this.duraklat = function(){
+    clearInterval(this.interval);
+    this.interval = null;
+  };
+  
+  this.bitir = function(){
+    this.duraklat();
+    this.sayacElem.innerHTML = '';
+    this.saniye = this.gercekSaniye;
+  };
+  
+}
+
+var Kronometre = new Kronometre('sayac');
+</script>
+    <header>
+        <h1>Tarif Defterim</h1>
+    </header>
+    <div class="recipe-details">
+        <img src="https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2018/May-17/Mexican_Chicken_and_Bean_Burrito_Recipe-4.jpg" alt="Chicken Burrito">
+        <div class="recipe-info">
+            <h1>Chicken Burrito Recipe</h1>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>2 cups cooked chicken breast, diced</li>
+                <li>1 cup cooked white rice</li>
+                <li>1 cup canned black beans, rinsed and drained</li>
+                <li>1 cup shredded cheddar cheese</li>
+                <li>1/2 cup salsa</li>
+                <li>1/4 cup sour cream</li>
+                <li>1/4 cup chopped fresh cilantro</li>
+                <li>1 teaspoon ground cumin</li>
+                <li>1 teaspoon chili powder</li>
+                <li>Salt and pepper to taste</li>
+                <li>Large flour tortillas</li>
+            </ul>
+        
+            <h2>Instructions:</h2>
+            <p>
+                1. In a large bowl, combine the diced chicken, cooked rice, black beans, cheddar cheese, salsa, sour cream,
+                cilantro, cumin, chili powder, salt, and pepper. Mix well.
+            </p>
+            <p>
+                2. Place a large spoonful of the chicken mixture in the center of each tortilla.
+            </p>
+            <p>
+                3. Fold in the sides and roll up the tortillas to form burritos.
+            </p>
+            <p>
+                4. Serve immediately and enjoy your delicious Chicken Burritos!
+            </p>
+        
+            <div class="timer">
+            <h2>Kronometre</h2>
+            <button onclick="Kronometre.baslat()">Start</button> /
+            <button onclick="Kronometre.duraklat()">Pause</button> /
+            <button onclick="Kronometre.bitir()">Finish</button>
+
+<hr />
+    <div class="info-section">
+          <img style="width: auto;" class="time-image" src="https://emojigraph.org/media/openmoji/two-oclock_1f551.png" alt="Chicken Burrito">
+          <h2>Preparation Time:</h2>
+          <p>20 minutes</p>
+</div>
+
+<div class="info-section">
+        <img style="width: 175px;" class="recipe-image" src="https://cdn-icons-png.flaticon.com/512/2058/2058065.png" alt="Chicken Burrito">
+        <h2>Calories:</h2>
+        <p>Approximately 400 calories per serving</p>
+</div>
+</body>
+
+
+</html>
+
+

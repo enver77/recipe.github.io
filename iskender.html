@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Iskender</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: rgb(70, 15, 15);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .recipe-details {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-details img {
+            width: 100%;
+            height: auto;
+        }
+
+        .recipe-info {
+            padding: 20px;
+        }
+
+        .recipe-info h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: red;
+        }
+
+        .recipe-info p {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .recipe-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recipe-info li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .timer {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .timer h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .favorite-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function Kronometre(Id, Saniye){
+  
+  this.gercekSaniye = Saniye || 0;
+  this.saniye = Saniye || 0;
+  this.interval;
+  
+  this.baslat = function(){
+    this.sayacElem = document.getElementById(Id);
+    if ( !this.interval ){
+      this.sayac();
+      this.interval = setInterval(this.sayac.bind(this), 1000);
+    }
+  };
+  
+  this.sayac = function(){
+    
+    var toplamSaniye = this.saniye;
+    var saat = parseInt( toplamSaniye / 3600 ) % 24;
+    var dakika = parseInt( toplamSaniye / 60 ) % 60;
+    var saniye = toplamSaniye % 60;
+    
+    this.sayacElem.innerHTML = (saat < 10 ? "0" + saat : saat) + ":" + (dakika < 10 ? "0" + dakika : dakika) + ":" + (saniye  < 10 ? "0" + saniye : saniye);
+    
+    this.saniye += 1;
+    
+  };
+  
+  this.duraklat = function(){
+    clearInterval(this.interval);
+    this.interval = null;
+  };
+  
+  this.bitir = function(){
+    this.duraklat();
+    this.sayacElem.innerHTML = '';
+    this.saniye = this.gercekSaniye;
+  };
+  
+}
+
+var Kronometre = new Kronometre('sayac');
+
+        function toggleFavorites() {
+            var recipeTitle = document.querySelector(".recipe-info h1").innerText;
+            var favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            var index = favorites.indexOf(recipeTitle);
+            if (index === -1) {
+                favorites.push(recipeTitle);
+                alert("Recipe added to favorites!");
+            } else {
+                favorites.splice(index, 1);
+                alert("Recipe removed from favorites!");
+            }
+
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+
+            updateFavoriteButton();
+            updateFavoritesCount();
+        }
+
+        function updateFavoriteButton() {
+            var recipeTitle = document.querySelector(".recipe-info h1").innerText;
+            var favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+            var favoriteButton = document.querySelector(".favorite-button");
+
+            if (favorites.includes(recipeTitle)) {
+                favoriteButton.innerText = "Remove from Favorites";
+            } else {
+                favoriteButton.innerText = "Add to Favorites";
+            }
+        }
+
+        function updateFavoritesCount() {
+            var favoritesCount = JSON.parse(localStorage.getItem("favorites"))?.length || 0;
+            var favoritesCountSpan = document.getElementById("favorites-count");
+            if (favoritesCountSpan) {
+                favoritesCountSpan.innerText = favoritesCount.toString();
+            }
+        }
+    </script>
+
+    <header>
+        <h1>Tarif Defterim</h1>
+        <div id="navbar">
+            <a href="favorites.html" style="    width: 200px;
+            color: rgb(150, 50, 50);
+            font-weight: bold;
+            border-radius: 100px;
+            background: white;
+            border: 1px solid #009688;
+            padding: 5px;">Favorites (<span id="favorites-count">0</span>)</a>
+        </div>
+    </header>
+
+    <div class="recipe-details">
+        <img src="iskender.jpg" alt=" Iskender">
+        <div class="recipe-info">
+            <h1>Iskender Recipe</h1> 
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>500g lamb or beef, thinly sliced</li>
+                <li>1 cup plain yogurt</li>
+                <li>2 tablespoons olive oil</li>
+                <li>1 teaspoon paprika</li>
+                <li>1 teaspoon cumin</li>
+                <li>Salt and pepper to taste</li>
+                <li>4 pieces of lavash bread or pita</li>
+                <li>Butter for serving</li>
+                <li>Tomato sauce</li>
+                <li>Yogurt sauce</li>
+            </ul>
+
+            <h2>Instructions:</h2>
+            <p>1. Marinate the sliced lamb or beef in olive oil, paprika, cumin, salt, and pepper. Let it rest for at least 1 hour.</p>
+            <p>2. Grill the marinated meat until cooked to your liking.</p>
+            <p>3. Heat the lavash bread or pita.</p>
+            <p>4. Arrange the grilled meat over the bread and pour tomato sauce and yogurt sauce on top.</p>
+            <p>5. Drizzle with melted butter and serve hot.</p>
+
+                <h2>Timer</h2>
+                <button onclick="Kronometre.baslat()">Start</button> /
+                <button onclick="Kronometre.duraklat()">Pause</button> /
+                <button onclick="Kronometre.bitir()">Finish</button>
+
+<hr />
+
+<div id="sayac"></div> 
+            <button class="favorite-button" onclick="toggleFavorites()">Add to Favorites</button>
+        </div>
+    
+
+    <script>
+        updateFavoriteButton();
+        updateFavoritesCount();
+    </script>
+    <script>
+        
+        updateFavoriteButton();
+        updateFavoritesCount();
+    </script>
+</body>
+</html>

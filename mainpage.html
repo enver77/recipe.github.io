@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarif Defteri</title>
+  <link rel="stylesheet" href="stylecss.css" />
+    
+</head>
+<body>
+    <header>
+        <img src="tarif_d2.jpg" alt="Logo" id="logo">
+        <!--<p id="current-date"></p>-->
+        <!--<h1>Tarif Defteri</h1>-->
+        <nav>
+          <div class="search-bar">
+            <input type="text" placeholder="Search...">
+          </div>
+          <ul>
+            <li><a class="ee" href="mainpage.html">Main Page</a></li>
+            <li><a href="maincourse.html">Main Course</a></li>
+            <li><a href="turk.html">Turkish Cuisine</a></li>
+            <li><a href="soup.html">Soups</a></li>
+            <li><a href="salad.html">Salads</a></li>
+            <li><a href="dessert.html">Desserts</a></li>
+            <li><a href="beverage.html">Beverages</a></li>
+            <li><a href="favorites.html">Favorite</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section>
+        <h2>About Us</h2>
+        <p>
+            Welcome to Delicious Recipes, your ultimate destination for mouth-watering recipes from around the globe. 
+            Whether you're a cooking enthusiast or a beginner in the kitchen, we have the perfect recipes for you.
+        </p>
+    </section>
+    <section>
+        <h2>Our Mission</h2>
+        <p>
+            At Delicious Recipes, our mission is to make cooking an enjoyable and delightful experience for everyone. 
+            We aim to provide a diverse collection of recipes, ranging from quick and easy meals to gourmet delights.
+        </p>
+    </section>
+    <section>
+        <h2>Featured Recipes</h2>
+        <p>
+            Explore our curated collection of delectable recipes. From savory main courses to indulgent desserts, 
+            we have something to satisfy every palate. Start your culinary journey with us!
+        </p>
+    </section>
+
+      
+      <footer>
+        <p>&copy; 2023 MIS203</p>
+      </footer>
+      
+      <script>
+        function displayCurrentDate() {
+          const currentDate = new Date();
+          const formattedDate = currentDate.toDateString();
+          const dateElement = document.getElementById('current-date');
+          dateElement.textContent = `${formattedDate}`;
+          
+        }
+    
+
+        window.onload = displayCurrentDate;
+      </script>
+
+
+
+</body>
+</html>

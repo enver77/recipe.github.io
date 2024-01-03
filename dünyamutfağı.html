@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="stylesheet.css" />
+<script src="script.js" defer></script>
+
+<nav>  
+  <header>
+    <img src="tarif_d2.jpg" alt="Logo" id="logo">
+    <!--<p id="current-date"></p>-->
+    <!--<h1>Tarif Defteri</h1>-->
+    <nav>
+      <ul>
+        <li><a class="ee" href="mainpage.html">Main Page</a></li>
+        <li><a href="turk.html">Turkish Cuisine</a></li>
+        <li><a href="soup.html">Soups</a></li>
+        <li><a href="#category4">World Cousine 4</a></li>
+        <li><a href="#category5">Deserts 5</a></li>
+        <li><a href="#category6">Category 6</a></li>
+        <li><a href="#category7">Category 7</a></li>
+        <li><a href="#category8">Category 8</a></li>
+      </ul>
+    </nav>
+  </header>
+</head>
+
+<div>
+
+</div>
+
+<body>
+    <div class="container">
+      <div class="slider-wrapper">
+        <button id="prev-slide" class="slide-button material-symbols-rounded">
+          chevron_left
+        </button>
+        <ul class="image-list">
+          <img class="image-item" src="https://yuvamaya.com.tr/upload/recipes/pizza.jpg" alt="pizza" />
+          <img class="image-item" src="https://bapafood.com/wp-content/uploads/2023/04/lazanya-tarifi.jpg" alt="lasagna">
+          <img class="image-item" src="https://imagedelivery.net/9sCnq8t6WEGNay0RAQNdvQ/UUID-cl90hg2hg12462979tqy4r679mf6/public" alt = "nachos">
+          <img class="image-item" src="https://s23209.pcdn.co/wp-content/uploads/2022/07/220602_DD_The-Best-Ever-Cheeseburger_267-500x500.jpg" alt="cheeseburger" />
+          <img class="image-item" src="images/img-6.jpg" alt="img-6" />
+          <img class="image-item" src="images/img-7.jpg" alt="img-7" />
+          <img class="image-item" src="images/img-8.jpg" alt="img-8" />
+          <img class="image-item" src="images/img-9.jpg" alt="img-9" />
+          <img class="image-item" src="images/img-10.jpg" alt="img-10" />
+        </ul>
+        <button id="next-slide" class="slide-button material-symbols-rounded">
+          chevron_right
+        </button>
+      </div>
+      <div class="slider-scrollbar">
+        <div class="scrollbar-track">
+          <div class="scrollbar-thumb"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe">
+        <img src="https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2018/May-17/Mexican_Chicken_and_Bean_Burrito_Recipe-4.jpg" alt="Chicken Burrito" onclick="goToRecipe()">
+        <div class="recipe-details">
+            <h3>Chicken Burrito Recipe</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>2 cups cooked chicken breast, diced</li>
+                <li>1 cup cooked white rice</li>
+                <li>1 cup canned black beans, rinsed and drained</li>
+                <!-- Diğer malzemeler buraya eklenebilir -->
+            </ul>
+            <button class="show-more-btn" onclick="showMore()">Daha Fazla</button>
+        </div>
+    </div>
+
+
+

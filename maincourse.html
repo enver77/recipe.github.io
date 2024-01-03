@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="stylecss.css" />
+<link rel="stylesheet" href="stylesheet.css" />
+<script src="script.js" defer></script>
+
+<header>
+    <img src="tarif_d2.jpg" alt="Logo" id="logo">
+   
+    <nav>
+      <ul>
+        <li><a href="mainpage.html">Main Page</a></li>
+        <li><a class="ee" href="maincourse.html">Main Course</a></li>
+        <li><a href="turk.html">Turkish Cuisine</a></li>
+        <li><a href="soup.html">Soups</a></li>
+        <li><a href="salad.html">Salads</a></li>
+        <li><a href="dessert.html">Desserts</a></li>
+        <li><a href="beverage.html">Beverages</a></li>
+        <li><a href="favorites.html">Favorite</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<div>
+
+</div>
+
+<body>
+    <div class="container">
+      <div class="slider-wrapper">
+        <button id="prev-slide" class="slide-button material-symbols-rounded">
+          Left
+        </button>
+        <ul class="image-list">
+          <img class="image-item" src="https://yuvamaya.com.tr/upload/recipes/pizza.jpg" alt="pizza" />
+          <img class="image-item" src="https://bapafood.com/wp-content/uploads/2023/04/lazanya-tarifi.jpg" alt="lasagna">
+          <img class="image-item" src="https://imagedelivery.net/9sCnq8t6WEGNay0RAQNdvQ/UUID-cl90hg2hg12462979tqy4r679mf6/public" alt = "nachos">
+          <img class="image-item" src="https://s23209.pcdn.co/wp-content/uploads/2022/07/220602_DD_The-Best-Ever-Cheeseburger_267-500x500.jpg" alt="cheeseburger" />
+          <img class="image-item" src="https://cdn.yemek.com/mncrop/620/388/uploads/2022/05/ev-koftesi-yemekcom-1.jpg" alt="köfte" />
+          <img class="image-item" src="https://beylerkebap.com.tr/wp-content/uploads/2019/12/adana-kebap-v2.jpg" alt="kebap" />
+          <img class="image-item" src="https://www.karaca.com/blog/wp-content/uploads/2023/02/tavuk-donerr.webp" alt="döner" />
+          <img class="image-item" src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/c4e7f587-e9e1-4953-b032-f58f82e91f4d/Derivates/4b8b814f-8562-4ad0-8db8-9939cb103685.jpg" alt="rameni" />
+          <img class="image-item" src="https://cdn.yemek.com/mnresize/1250/833/uploads/2022/11/etli-fajita-yemekcom.jpg" alt="fajita" />
+        </ul>
+        <button id="next-slide" class="slide-button material-symbols-rounded">
+        Right
+        </button>
+      </div>
+      <div class="slider-scrollbar">
+        <div class="scrollbar-track">
+          <div class="scrollbar-thumb"></div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="recipe">
+        <img src="https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2018/May-17/Mexican_Chicken_and_Bean_Burrito_Recipe-4.jpg" alt="Chicken Burrito" onclick="goToRecipe()">
+        <div class="recipe-details">
+            <h3 style="font-style: italic;">Chicken Burrito Recipe</h3>
+            <b>Ingredients:</b>
+            <ul>
+                <li>2 cups cooked chicken breast, diced</li>
+                <li>1 cup cooked white rice</li>
+                <li>1 cup canned black beans, rinsed and drained</li>
+            </ul>
+            <button class="show-more-btn" onclick="showMore()">Full Receipt</button>
+        </div>
+    </div>
+<script>
+
+        function showMorem() {
+            window.location.href = "margerita.html"; 
+        }
+</script>
+
+    <div class="recipe">
+        <img src="margarita.jpg" alt="Margarita" onclick="goToRecipe()">
+
+        <div class="recipe-details">
+            <h3 style="font-style: italic;">Margherita Recipe</h3>
+            <b>Ingredients:</b>
+            <ul>
+              <li>1 pizza dough</li>
+              <li>1/2 cup pizza sauce</li>
+              <li>1 1/2 cups fresh mozzarella, sliced</li>
+              <li>1/4 cup fresh basil leaves</li>
+              <li>1 tablespoon olive oil</li>
+              <li>Salt and pepper to taste</li>
+            </ul>
+            <button class="show-more-btn" onclick="showMorem()">Full Receipt</button>
+        </div>
+    </div>
+    
+    <script>
+
+        function showMorem() {
+            window.location.href = "margerita.html"; 
+        }
+</script>
+
+
+
+    <div class="recipe">
+        <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2022/06/chicken-tikka-masala.jpg" alt="Chicken Tikka Masala" onclick="goToRecipe()">
+        <div class="recipe-details">
+            <h3 style="font-style:italic" >Chicken Tikka Masala Recipe</h3>
+            <b>Ingredients:</b>
+            <ul>
+                <li>Chicken breast pieces</li>
+                <li>Yogurt and spices marinade</li>
+                <li>Tomato sauce</li>
+                <li>Cream</li>
+                <li>Garam masala, turmeric, cumin</li>
+            </ul>
+            <button class="show-more-btn" onclick="showMorem_t()">Show More</button>
+        </div>
+    </div>
+    
+    <script>
+  function showMorem_t() {
+  window.location.href = "tikki.html"; 
+}
+      
+</script>
+
+    <div class="recipe">
+        <img src="https://i.lezzet.com.tr/images-xxlarge-recipe/how-to-make-iskender-kebab-homemade-iskender-kebab-recipe-bae78de4-7c4c-4d2d-9016-456852c22f5c.jpg" alt="Chocolate Chip Cookies" onclick="goToRecipe()">
+        <div class="recipe-details">
+            <h3 style="font-style: italic;">Iskender Recipe</h3>
+            <b>Ingredients:</b>
+            <ul>
+              <li>500g lamb or beef, thinly sliced</li>
+              <li>1 cup plain yogurt</li>
+              <li>2 tablespoons olive oil</li>
+              <li>1 teaspoon paprika</li>
+              <li>1 teaspoon cumin</li>
+            </ul>
+            <button class="show-more-btn" onclick="showMorem_iskender()">Show More</button>
+        </div>
+    </div>
+    <script>
+    function showMorem_iskender() {
+      window.location.href = "iskender.html"; 
+    }
+  </script>
+
+
+
+

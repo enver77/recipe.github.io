@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Margherita</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: red;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .recipe-details {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-details img {
+            width: 100%;
+            height: auto;
+        }
+
+        .recipe-info {
+            padding: 20px;
+        }
+
+        .recipe-info h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: red;
+        }
+
+        .recipe-info p {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .recipe-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recipe-info li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .timer {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .timer h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .favorite-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function Kronometre(Id, Saniye){
+  
+  this.gercekSaniye = Saniye || 0;
+  this.saniye = Saniye || 0;
+  this.interval;
+  
+  this.baslat = function(){
+    this.sayacElem = document.getElementById(Id);
+    if ( !this.interval ){
+      this.sayac();
+      this.interval = setInterval(this.sayac.bind(this), 1000);
+    }
+  };
+  
+  this.sayac = function(){
+    
+    var toplamSaniye = this.saniye;
+    var saat = parseInt( toplamSaniye / 3600 ) % 24;
+    var dakika = parseInt( toplamSaniye / 60 ) % 60;
+    var saniye = toplamSaniye % 60;
+    
+    this.sayacElem.innerHTML = (saat < 10 ? "0" + saat : saat) + ":" + (dakika < 10 ? "0" + dakika : dakika) + ":" + (saniye  < 10 ? "0" + saniye : saniye);
+    
+    this.saniye += 1;
+    
+  };
+  
+  this.duraklat = function(){
+    clearInterval(this.interval);
+    this.interval = null;
+  };
+  
+  this.bitir = function(){
+    this.duraklat();
+    this.sayacElem.innerHTML = '';
+    this.saniye = this.gercekSaniye;
+  };
+  
+}
+
+var Kronometre = new Kronometre('sayac');
+
+        function toggleFavorites() {
+            var recipeTitle = document.querySelector(".recipe-info h1").innerText;
+            var favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            var index = favorites.indexOf(recipeTitle);
+            if (index === -1) {
+                favorites.push(recipeTitle);
+                alert("Recipe added to favorites!");
+            } else {
+                favorites.splice(index, 1);
+                alert("Recipe removed from favorites!");
+            }
+
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+
+            // Update the button text
+            updateFavoriteButton();
+            // Update the favorites count in the navbar
+            updateFavoritesCount();
+        }
+
+        function updateFavoriteButton() {
+            var recipeTitle = document.querySelector(".recipe-info h1").innerText;
+            var favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+            var favoriteButton = document.querySelector(".favorite-button");
+
+            if (favorites.includes(recipeTitle)) {
+                favoriteButton.innerText = "Remove from Favorites";
+            } else {
+                favoriteButton.innerText = "Add to Favorites";
+            }
+        }
+
+        function updateFavoritesCount() {
+            var favoritesCount = JSON.parse(localStorage.getItem("favorites"))?.length || 0;
+            var favoritesCountSpan = document.getElementById("favorites-count");
+            if (favoritesCountSpan) {
+                favoritesCountSpan.innerText = favoritesCount.toString();
+            }
+        }
+    </script>
+
+    <header>
+        <h1>Tarif Defterim</h1>
+        <div id="navbar">
+            <a href="favorites.html">Favorites (<span id="favorites-count">0</span>)</a>
+        </div>
+    </header>
+
+    <div class="recipe-details">
+        <img src="https://img.woowrecipes.com/img/article/468/la-historia-de-la-pizza-margarita-que-no-conoc.jpg" alt="Chicken Burrito">
+        <div class="recipe-info">
+            <h1>Pizza Margherita Recipe</h1>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>1 pizza dough</li>
+                <li>1/2 cup pizza sauce</li>
+                <li>1 1/2 cups fresh mozzarella, sliced</li>
+                <li>1/4 cup fresh basil leaves</li>
+                <li>1 tablespoon olive oil</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+
+            <h2>Instructions:</h2>
+            <p>
+                1. Preheat your oven to 475°F (245°C). If you have a pizza stone, place it in the oven during preheating.
+            </p>
+            <p>
+                2. Roll out the pizza dough on a floured surface to your desired thickness.
+            </p>
+            <p>
+                3. Transfer the rolled-out dough to a pizza peel or an inverted baking sheet.
+            </p>
+            <p>
+                4. Spread the pizza sauce evenly over the dough, leaving a small border around the edges.
+            </p>
+            <p>
+                5. Arrange the sliced mozzarella on top of the sauce.
+            </p>
+            <p>
+                6. Sprinkle fresh basil leaves over the pizza, and season with salt and pepper.
+            </p>
+            <p>
+                7. Drizzle olive oil over the top.
+            </p>
+            <p>
+                8. If using a pizza stone, transfer the pizza to the preheated stone in the oven. Otherwise, place the baking sheet in the oven.
+            </p>
+            <p>
+                9. Bake for 12-15 minutes or until the crust is golden and the cheese is bubbly and slightly browned.
+            </p>
+
+            <h2>Timer</h2>
+            <button onclick="Kronometre.baslat()">Start</button> /
+            <button onclick="Kronometre.duraklat()">Pause</button> /
+            <button onclick="Kronometre.bitir()">Finish</button>
+
+<hr />
+
+<div id="sayac"></div> 
+
+            <button class="favorite-button" onclick="toggleFavorites()">Add to Favorites</button>
+        </div>
+    </div>
+
+    <script>
+        
+        updateFavoriteButton();
+        updateFavoritesCount();
+    </script>
+</body>
+</html>
